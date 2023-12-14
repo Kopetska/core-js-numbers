@@ -147,8 +147,7 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 function getLastDigit(value) {
-  const lastChar = value.toString().slice(-1);
-  return +lastChar;
+  return value % 10;
 }
 
 /**
@@ -640,11 +639,16 @@ function getHypotenuse(a, b) {
  * 15 => 8
  */
 function getCountOfOddNumbers(number) {
-  let oddNumbers = 0;
-  for (let i = 0; i <= number; i += 2) {
-    oddNumbers = i;
+  if (number === 0) {
+    return 0;
   }
-  return oddNumbers;
+  if (number > 0) {
+    return Math.floor((number + 1) / 2);
+  }
+  if (number < 0) {
+    return Math.floor((-number + 1) / 2);
+  }
+  return 0;
 }
 
 module.exports = {
